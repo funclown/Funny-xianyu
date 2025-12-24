@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  xianyu-crawler:
+    build: .
+    container_name: 闲鱼爬虫系统
+    ports:
+      - "8000:8000"
+    volumes:
+      # 挂载配置文件
+      - ./.env:/app/.env
+      - ./config.json:/app/config.json
+      # 挂载数据和日志目录
+      - ./logs:/app/logs
+      - ./results:/app/results
+      # 挂载 prompts 目录（用于AI提示词）
+      - ./prompts:/app/prompts
+    environment:
+      - TZ=Asia/Shanghai
+      - RUN_HEADLESS=true
+    restart: unless-stopped
+    # 如果需要显示浏览器（调试用），取消下面注释
+    # environment:
+    #   - DISPLAY=host.docker.internal:0
