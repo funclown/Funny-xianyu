@@ -1,8 +1,44 @@
-playwright==1.48.0
-python-dotenv==1.0.0
+# ==================== 核心依赖 ====================
+# Web 框架
 fastapi==0.115.0
 uvicorn[standard]==0.32.0
-requests==2.31.0
 python-multipart==0.0.6
 pydantic==2.9.0
+
+# Session 和数据签名
+itsdangerous>=2.1.2
+
+# 邮箱验证
+email-validator>=2.1.0
+
+# ==================== 爬虫相关 ====================
+# 浏览器自动化（必须使用最新版以支持新版 Chrome）
+playwright>=1.57.0
+
+# HTTP 请求
+requests==2.31.0
+
+# ==================== 配置和工具 ====================
+# 环境变量管理
+python-dotenv==1.0.0
+
+# 定时任务
 apscheduler==3.10.4
+
+# ==================== 可选依赖 ====================
+# 如果使用 AI 功能，取消下面的注释
+# openai>=1.0.0
+# anthropic>=0.18.0
+
+# ==================== 说明 ====================
+# uvicorn[standard] 包含了以下额外依赖：
+# - websockets>=13.0
+# - httptools>=0.6.0
+# - python-dotenv>=1.0.0 (已在上面列出)
+# - pyyaml>=6.0
+# - uvloop>=0.21.0 (仅 Unix)
+# - colorama>=0.4 (仅 Windows)
+#
+# FastAPI 会自动安装：
+# - starlette>=0.37.0
+# - typing-extensions>=4.6.0
